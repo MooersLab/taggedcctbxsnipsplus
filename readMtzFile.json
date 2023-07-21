@@ -1,0 +1,22 @@
+{
+  "display_name": "readMtzFile",
+  "metadata": {
+    "language": "python",
+    "description": "Read in a mtz file into a Miller array with iotbx.file_reader.",
+    "tags": [
+    "python","readMtzFile","iotbx","extra crystal symmetry"
+    ],
+    "code": [
+      "'''",
+      "from iotbx.file_reader import any_file",
+      "mtz_in = any_file("${1:data}.mtz", force_type="mtz")",
+      "miller_arrays = mtz_in.file_server.miller_arrays",
+      "$0'''",
+      ""
+      "from iotbx.file_reader import any_file",
+      "mtz_in = any_file('data.mtz', force_type='mtz')",
+      "miller_arrays = mtz_in.file_server.miller_arrays"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

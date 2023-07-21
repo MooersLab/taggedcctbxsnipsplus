@@ -1,0 +1,20 @@
+{
+  "display_name": "symmetryFromPDB",
+  "metadata": {
+    "language": "python",
+    "description": "Print the symmetry from a PDB file.",
+    "tags": [
+    "python","symmetryFromPDB","iobtbx","fetch mtz"
+    ],
+    "code": [
+      "'''",
+      "import iotbx",
+      "iotbx.pdb.crystal_symmetry_from_pdb.extract_from("${1:3nd4}.pdb")",
+      "$0'''",
+      ""
+      "import iotbx",
+      "iotbx.pdb.crystal_symmetry_from_pdb.extract_from('3nd4.pdb')"
+    ]
+  },
+  "schema_name": "code-snippet"
+}
