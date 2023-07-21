@@ -1,0 +1,22 @@
+{
+  "display_name": "mtzObjectSummary",
+  "metadata": {
+    "language": "python",
+    "description": "Read mtz file into a mtz object and print summary.",
+    "tags": [
+    "python","mtzObjectSummary","mtz object","print summary"
+    ],
+    "code": [
+      "'''",
+      "from iotbx import mtz",
+      "mtz_obj = mtz.object(file_name="/Users/blaine/${1:3nd4}.mtz")",
+      "mtz_obj.show_summary()",
+      "$0'''",
+      ""
+      "from iotbx import mtz",
+      "mtz_obj = mtz.object(file_name='/Users/blaine/3nd4.mtz')",
+      "mtz_obj.show_summary()"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

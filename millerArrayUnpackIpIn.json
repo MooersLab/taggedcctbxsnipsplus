@@ -1,0 +1,36 @@
+{
+  "display_name": "millerArrayUnpackIpIn",
+  "metadata": {
+    "language": "python",
+    "description": "Unpack into I(+) and I(-) for a specified Miller array. ",
+    "tags": [
+    "python","millerArrayUnpackIpIn","miller array","anomalous signal"
+    ],
+    "code": [
+      "'''",
+      "Iobs = miller_arrays[${1:0}]",
+      "i_plus, i_minus = Iobs.hemispheres_acentrics()",
+      "ipd = i_plus.data()",
+      "ip=list(ipd)",
+      "imd = i_minus.data()",
+      "im = list(imd)",
+      "len(im)",
+      "Iobs.show_summary()",
+      "print(Iobs.info())",
+      "print(Iobs.observation_type())",
+      "$0'''",
+      ""
+      "Iobs = miller_arrays[0]",
+      "i_plus, i_minus = Iobs.hemispheres_acentrics()",
+      "ipd = i_plus.data()",
+      "ip=list(ipd)",
+      "imd = i_minus.data()",
+      "im = list(imd)",
+      "len(im)",
+      "Iobs.show_summary()",
+      "print(Iobs.info())",
+      "print(Iobs.observation_type())"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

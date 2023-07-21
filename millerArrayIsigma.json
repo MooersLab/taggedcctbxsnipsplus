@@ -1,0 +1,19 @@
+{
+  "display_name": "millerArrayIsigma",
+  "metadata": {
+    "language": "python",
+    "description": "Return the I/sig overall for a given Miller array.",
+    "tags": [
+    "python","millerArrayIsigma
+","miller array","Isigma"
+    ],
+    "code": [
+      "'''",
+      "miller_arrays[${1:0}].i_over_sig_i()",
+      "$0'''",
+      ""
+      "miller_arrays[0].i_over_sig_i()"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

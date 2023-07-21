@@ -1,0 +1,18 @@
+{
+  "display_name": "normalizedStructureFactors",
+  "metadata": {
+    "language": "python",
+    "description": "Calculate quasi-normalized structure factor.",
+    "tags": [
+    "python","normalizedStructureFactors","iotbx","extra crystal symmetry"
+    ],
+    "code": [
+      "'''",
+      "all_e_values = miller_array.quasi_normalize_structure_factors().sort(by_value="data")",
+      "$0'''",
+      ""
+      "all_e_values = miller_array.quasi_normalize_structure_factors().sort(by_value='data')"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

@@ -1,0 +1,18 @@
+{
+  "display_name": "millerArraySources",
+  "metadata": {
+    "language": "python",
+    "description": "Print the source of each miller array.",
+    "tags": [
+    "python","millerArraySources","miller array","source"
+    ],
+    "code": [
+      "'''",
+      "print("Miller Array %s: %s" % (i, miller_array.info().source)) for i, miller_array in list(enumerate(miller_arrays))]",
+      "$0'''",
+      ""
+      "print('Miller Array %s: %s' % (i, miller_array.info().source)) for i, miller_array in list(enumerate(miller_arrays))]"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

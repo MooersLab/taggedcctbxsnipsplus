@@ -1,0 +1,18 @@
+{
+  "display_name": "millerArrayLengths",
+  "metadata": {
+    "language": "python",
+    "description": "Print length of miller arrays (i.e., the number of datasets in a mtz file).",
+    "tags": [
+    "python","millerArrayLengths","miller array","number of data sets"
+    ],
+    "code": [
+      "'''",
+      "len(miller_arrays)",
+      "$0'''",
+      ""
+      "len(miller_arrays)"
+    ]
+  },
+  "schema_name": "code-snippet"
+}
