@@ -1,0 +1,22 @@
+{
+  "display_name": "condaInstall",
+  "metadata": {
+    "language": "python",
+    "description": "The conda commands to install cctbx with the jupyter notebook, pandas, and xarray.",
+    "tags": [
+    "python","condaInstall","conda","install"
+    ],
+    "code": [
+      "'''",
+      "conda create --name ${1:cctbx37} python=${2:3.7}",
+      "conda activate ${1:cctbx37}",
+      "conda install -c conda-forge cctbx-base jupyter pandas xarray",
+      "$0'''",
+      ""
+      "conda create --name cctbx37 python=3.7",
+      "conda activate cctbx37",
+      "conda install -c conda-forge cctbx-base jupyter pandas xarray"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

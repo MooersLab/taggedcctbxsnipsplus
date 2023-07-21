@@ -1,0 +1,18 @@
+{
+  "display_name": "millerArrayAnomalousSignal",
+  "metadata": {
+    "language": "python",
+    "description": "Return the anomalous signal in a specified Miller array.",
+    "tags": [
+    "python","millerArrayAnomalousSignal","miller array","anomalous signal"
+    ],
+    "code": [
+      "'''",
+      "miller_arrays[${1:0}].anomalous_signal()",
+      "$0'''",
+      ""
+      "miller_arrays[0].anomalous_signal()"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

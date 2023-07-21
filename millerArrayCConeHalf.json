@@ -1,0 +1,18 @@
+{
+  "display_name": "millerArrayCConeHalf",
+  "metadata": {
+    "language": "python",
+    "description": "Return CC one-half for a given Miller array. ",
+    "tags": [
+    "python","millerArrayCConeHalf","miller array","cc_one_half"
+    ],
+    "code": [
+      "'''",
+      "miller_arrays[${1:0}].cc_one_half()",
+      "$0'''",
+      ""
+      "miller_arrays[0].cc_one_half()"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

@@ -1,0 +1,18 @@
+{
+  "display_name": "millerArrayHKLs",
+  "metadata": {
+    "language": "python",
+    "description": "Print all of the miller indices for a given Miller array.",
+    "tags": [
+    "python","millerArrayHKLs","miller array","HKLs","print out"
+    ],
+    "code": [
+      "'''",
+      "[print(hkl) for hkl in miller_arrays[${1:0}].indices()]",
+      "$0'''",
+      ""
+      "[print(hkl) for hkl in miller_arrays[0].indices()]"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

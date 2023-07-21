@@ -1,0 +1,2152 @@
+2d1
+< 
+44,48d42
+< 11 August 2020
+< Converted from exportSnips.py to exportPySnips.py to export with commands inside cmd.do('').
+< 
+< 
+< 
+53c47
+<     c.execute('SELECT * FROM {tn} WHERE {cn}="text.pml"'.
+---
+>     c.execute('SELECT * FROM {tn} WHERE {cn}="source.python"'.
+60a55,57
+>     """
+>     Print the number of snippets.
+>     """
+62c59
+<         'SELECT COUNT(*) FROM {tn} WHERE {cn}="text.pml"'.format(tn=table_name, cn=col_3))
+---
+>         'SELECT COUNT(*) FROM {tn} WHERE {cn}="source.python"'.format(tn=table_name, cn=col_3))
+94c91
+<     cursor.execute('SELECT DISTINCT category FROM {} WHERE {cn}="text.pml" ORDER BY category'.format(
+---
+>     cursor.execute('SELECT DISTINCT category FROM {} WHERE {cn}="source.python" ORDER BY category'.format(
+99,100c96,97
+<         print("\n" + "There are " + str(numCat) + " distinct categories of snippets" + 
+<               "\n" + "(in format for pasting as a list into Rmarkdown:)" + "\n")
+---
+>         print("\n"+"There are " + str(numCat) + " distinct categories of snippets" +
+>               "\n"+"(in format for pasting as a list into Rmarkdown:)"+"\n")
+135a133,134
+>              
+>              
+150c149
+<     c.execute('SELECT * FROM {tn} WHERE {cn}="text.pml"'.
+---
+>     c.execute('SELECT * FROM {tn} WHERE {cn}="source.python"'.
+165a165,168
+> 
+> 
+> 
+> 
+180c183
+<     c.execute('SELECT * FROM {tn} WHERE {cn}="text.pml"'.
+---
+>     c.execute('SELECT * FROM {tn} WHERE {cn}="source.python"'.
+195a199
+> 
+210c214
+<     c.execute('SELECT * FROM {tn} WHERE {cn}="text.pml"'.
+---
+>     c.execute('SELECT * FROM {tn} WHERE {cn}="source.python"'.
+214c218
+<                                       'body', 'body4json', 'body4bbedit', 'body4jupyter',
+---
+>                                       'body', 'body4json', 'body4bbedit', 'pythonYN',
+221c225
+<         print("## " + key + ":")
+---
+>         print("## "+key+":")
+232a237
+> 
+238c243
+<     c.execute('SELECT * FROM {tn} WHERE {cn}="text.pml"'.
+---
+>     c.execute('SELECT * FROM {tn} WHERE {cn}="source.python"'.
+254a260,263
+> 
+> 
+> 
+> 
+272a282
+> 
+275c285
+<     c.execute('SELECT * FROM {tn} WHERE {cn}="text.pml"'.
+---
+>     c.execute('SELECT * FROM {tn} WHERE {cn}="source.python"'.
+279c289
+<                                       'body', 'body4json', 'body4bbedit', 'pythonYN',
+---
+>                                       'body', 'body4json', 'body4bbedit', 'pythonYN,',
+293a304
+> 
+300a312
+> 
+309,311c321,323
+<     sensitive to line indentation. The scope for the "pml" type files is called ".source.pymol". This
+<     goes on the first line of the section of the snippet file that contains all of the “pml” snippets.
+<     The scope limits the availability of the snippets to “pml” files. The available snippets are
+---
+>     sensitive to line indentation. The scope for the "python" type files is called ".source.pymol". This
+>     goes on the first line of the section of the snippet file that contains all of the “python” snippets.
+>     The scope limits the availability of the snippets to “python” files. The available snippets are
+316c328
+<     snippets in alphabetical order. All of the "pml" snippets are indented by a tab under the line
+---
+>     snippets in alphabetical order. All of the "python" snippets are indented by a tab under the line
+322c334
+<     for Atom provides syntax highlighting of PyMOL "pml" scripts. This package was adapted
+---
+>     for Atom provides syntax highlighting of PyMOL "python" scripts. This package was adapted
+324c336
+<     This package needs to be installed to activate the pml scope.
+---
+>     This package needs to be installed to activate the python scope.
+327,328c339,340
+<       Append the file pml_snippets.cson to your existing snippets.cson file:
+<           cat pmlsnippets.cson snippet.cson > snippets.cson
+---
+>       Append the file python_snippets.cson to your existing snippets.cson file:
+>           cat pythonsnippets.cson snippet.cson > snippets.cson
+333,338c345
+<       The scope is defined once. 
+<     
+<     The language-pymol package for Atom provides syntax highlighting and defines the scope as 
+<     .source.pymol for pml files and source.py2pml for python files that write pymol code.
+<     The ${0} needs to be written outside of the cmd.do(). 
+<     This means that all of the body's have to have the ${0} removed.
+---
+>       The scope is defined once.
+341c348
+<     home = r'/Users/blaine/Manuscripts/PyMOLsnippets/pymolpysnips/atompymolsnips/'
+---
+>     home = r'/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/atomcctbxsnips/'
+343c350
+<     outp1 = "'.source.python': \n"
+---
+>     outp1 = "'.source."+scopeAtom + "': \n"
+358c365
+<         numSpaces = 0
+---
+>         numSpaces = 6
+360,362c367,369
+<         sbody = "      cmd.do('" + "')\n      cmd.do('".join((numSpaces * "") + i for i in s.splitlines()) + "')" + "\n      \n" + "      ${0}"
+<         outp2 = "  '" + caption + "':\n"\
+<             "    'prefix': '" + tabtrigger + "'\n"\
+---
+>         sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines()) + "\n      \n" + "      ${0}"
+>         outp2 = "  '"+caption+"':\n"\
+>             "    'prefix': '"+tabtrigger+"'\n"\
+364c371
+<             +sbody +  "\n"\
+---
+>             + sbody + "\n"\
+373c380
+<     The snippets are stored in a single file.
+---
+>     The snippets are stored in a single.
+378,380d384
+<     
+<     code boneyard:
+<     sbody = "\n".join((numSpaces0 * " ") + i for i in s.splitlines())
+384c388
+<     home = r'/Users/blaine/Manuscripts/PyMOLsnippets/pymolpysnips/geditpypymolsnips/'
+---
+>     home = r'/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/geditcctbxsnips/'
+406c410
+<         sbody = "      cmd.do('" + "')\n      cmd.do('".join((numSpaces0 * "") + i for i in s.splitlines()) + "')" + "\n      \n" + "      ${0}"
+---
+>         sbody = "\n".join((numSpaces0 * " ") + i for i in s.splitlines())
+410c414
+<             "    <text><![CDATA[" + sbody + "\n"\
+---
+>             "    <text><![CDATA[" + sbody + "\n"+ "\n" + "   ${0}"\
+422,423d425
+<     code boneyard:
+<     # sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines())
+426c428
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/snipmatepymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/snipmatecctbxsnips/'
+445,446c447,448
+<         sbody = "       cmd.do('" + "')\n      cmd.do('".join((numSpaces * "") + i for i in s.splitlines()) + "')" + "\n       \n" + "       ${0}"
+<         outp2 = "snippet " + tabtrigger + "\n" + sbody + "\n"
+---
+>         sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines())
+>         outp2 = "snippet "+tabtrigger+"\n" + sbody+"\n"
+461c463
+<     to be installed to make available the scope for PyMOL “pml” files. Take care to add a
+---
+>     to be installed to make available the scope for PyMOL “python” files. Take care to add a
+472,474c474,476
+<     certain kinds of files like source files ending with the file extension "pml". There is a list of
+<     sanctioned scopes. There is not a "pml" scope in the default list, so the initial use of this tag
+<     will lead to the hiding of the snippets when trying to add them to a pml file. Use
+---
+>     certain kinds of files like source files ending with the file extension "python". There is a list of
+>     sanctioned scopes. There is not a "python" scope in the default list, so the initial use of this tag
+>     will lead to the hiding of the snippets when trying to add them to a python file. Use
+488,490d489
+<     
+<     code boneyard
+<     #            + body + "\n\n" + "${0}" + "\n"\
+493c492
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolpysnips/st3pymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/st3cctbxsnips/'
+508,521c507,514
+<         s = body
+<         sbody = "       cmd.do('"\
+<               + "')\n      cmd.do('".join((numSpaces * "")\
+<               + i for i in s.splitlines())\
+<               + "')"\
+<               + "\n       \n"\
+<               + "       ${0}" 
+<         outp1 = "<snippet>" + "\n"\
+<             + "<content><![CDATA[" + "\n" \
+<             + sbody + "]]></content>" + "\n"\
+<             + "<tabTrigger>" + tabtrigger + "</tabTrigger>" + "\n"\
+<             + "<scope>" + '' + "</scope>" + "\n"\
+<             + "<caption>" + caption + "</caption>" + "\n"\
+<             + "</snippet>"
+---
+>         outp1 = "<snippet>"+"\n"\
+>             "<content><![CDATA["+"\n"\
+>             + body + "\n"\
+>             + "]]></content>"+"\n"\
+>             "<tabTrigger>" + tabtrigger + "</tabTrigger>"+"\n"\
+>             "<scope>" + '' + "</scope>"+"\n"\
+>             "<caption>" + caption + "</caption>"+"\n"\
+>             "</snippet>"
+533c526
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/bluefishpymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/bluefishcctbxsnips/'
+555c548
+<             +body + "\n\n" + "${0}" + "\n"\
+---
+>             + body + '\n'\
+561c554
+<     outp2 = '<branch title="PyMOL pml">'
+---
+>     outp2 = '<branch title="PyMOL python">'
+576c569
+<     to be installed to make available the scope for PyMOL “pml” files. Take care to add a
+---
+>     to be installed to make available the scope for PyMOL “python” files. Take care to add a
+587,589c580,582
+<     certain kinds of files like source files ending with the file extension "pml". There is a list of
+<     sanctioned scopes. There is not a "pml" scope in the default list, so the initial use of this tag
+<     will lead to the hiding of the snippets when trying to add them to a pml file. Use
+---
+>     certain kinds of files like source files ending with the file extension "python". There is a list of
+>     sanctioned scopes. There is not a "python" scope in the default list, so the initial use of this tag
+>     will lead to the hiding of the snippets when trying to add them to a python file. Use
+605c598
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/cudatextpymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/cudatextcctbxsnips/'
+623,624c616,617
+<             "text=" + "\n"\
+<             +body + "\n\n" + "${0}" + "\n"
+---
+>             "text="+"\n"\
+>             + body + "\n"
+640,641c633,634
+<     The abbreviations in the pml folder do not work in script files for other languages.
+<     They only work in files with the pml file extension.
+---
+>     The abbreviations in the python folder do not work in script files for other languages.
+>     They only work in files with the python file extension.
+647c640
+<     I left the language in the header of the snippet set to 'Text' becuase this worked without defining the pml language.
+---
+>     I left the language in the header of the snippet set to 'Text' becuase this worked without defining the python language.
+650c643
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/komodoeditpymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/komodoeditcctbxsnips/'
+685c678
+<             + body3 + "\n\n" + "${0}" + "\n"
+---
+>             + body3 + "\n"
+702c695
+<     I need to write a pml language for Light Table.
+---
+>     I need to write a python language for Light Table.
+706c699
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/lighttablepymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/lighttablecctbxsnips/'
+708c701
+<     """ Replace the word python with pml once a pml editor is deployed for Light Table """
+---
+>     """ Replace the word python with python once a python editor is deployed for Light Table """
+725,734c718,727
+<         outpB = ('           {:name "' + 
+<                  caption + '"' + 
+<                  '\n' + 
+<                  '            :key "' + 
+<                  tabtrigger + 
+<                  '"' + 
+<                  '\n' + 
+<                  '            :snippet-file "' + 
+<                  tabtrigger + 
+<                  '.snip"}' + 
+---
+>         outpB = ('           {:name "' +
+>                  caption + '"' +
+>                  '\n' +
+>                  '            :key "' +
+>                  tabtrigger +
+>                  '"' +
+>                  '\n' +
+>                  '            :snippet-file "' +
+>                  tabtrigger +
+>                  '.snip"}' +
+738c731
+<         outp1 = body + "\n\n" + "${0}" + "\n"
+---
+>         outp1 = body + "\n"
+753c746
+<     They are stored in ~/Library/Application Support/BBedit/Clippings/PyMOL.pml.
+---
+>     They are stored in ~/Library/Application Support/BBedit/Clippings/PyMOL.python.
+757,761c750,754
+<     Support/BBEdit/Clippings}. We put them in a subfolder called "PyMOL.pml". The
+<     clippings are pml code stored in plain text files. These plain text files have the file extension of
+<     "pml". The clipping file can hold one or more lines of pml code. The code clippings are
+<     accessed from the top bar via the "C" pulldown. The "C" pulldown reveals a "PyMOL.pml"
+<     pulldown. The "PyMOL.pml" pulldown reveals the snippets. A snippet is selected with the
+---
+>     Support/BBEdit/Clippings}. We put them in a subfolder called "PyMOL.python". The
+>     clippings are python code stored in plain text files. These plain text files have the file extension of
+>     "python". The clipping file can hold one or more lines of python code. The code clippings are
+>     accessed from the top bar via the "C" pulldown. The "C" pulldown reveals a "PyMOL.python"
+>     pulldown. The "PyMOL.python" pulldown reveals the snippets. A snippet is selected with the
+765,767c758,760
+<     The holding capacity for clippings of the "PyMOL.pml" pulldown is about 2500 on a laptop
+<     computer screen. The "PyMOL.pml" pulldown lists 50 snippets. The "PyMOL.pml"
+<     subfolder can hold subsubfolders. These subsubfolders appear in the "PyMOL.pml" pulldown
+---
+>     The holding capacity for clippings of the "PyMOL.python" pulldown is about 2500 on a laptop
+>     computer screen. The "PyMOL.python" pulldown lists 50 snippets. The "PyMOL.python"
+>     subfolder can hold subsubfolders. These subsubfolders appear in the "PyMOL.python" pulldown
+775,776c768,769
+<     Snippets were very easy to add to BBEdit. Existing “pml” files were simply copied to the
+<     "Clippings/PyMOL.pml subfolder". There was no need to embedded the snippet code inside
+---
+>     Snippets were very easy to add to BBEdit. Existing “python” files were simply copied to the
+>     "Clippings/PyMOL.python subfolder". There was no need to embedded the snippet code inside
+783c776
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/bbeditpymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/bbeditcctbxsnips/'
+787c780,781
+<          category,
+---
+>          category,#!/opt/local/bin/python3.8
+> 
+797,798c791,792
+<         output1 = open(home + tabtrigger + ".pml", 'w')
+<         outp1 = body4bbedit + "\n\n" + "${0}" + "\n"
+---
+>         output1 = open(home + tabtrigger + ".python", 'w')
+>         outp1 = body4bbedit+"\n"
+818c812
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/jupyterclippingspymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/jupytercctbx2/'
+833c827
+<         output1 = open(home + tabtrigger + '.pml', 'w')
+---
+>         output1 = open(home + tabtrigger + '.py', 'w')
+838c832
+<             outp1 = '""""' + "\n" + body0 + '""""' + "\n"
+---
+>             outp1 = '""""'+"\n"+body0+'""""'+"\n"
+847a842,851
+>             output1 = open(dirName + '/' + tabtrigger + '.py', 'a')
+>             outp1 = (body3 +
+>                      "\n" +
+>                      r"# Description:  " +
+>                      caption +
+>                      "\n" +
+>                      r"# Source:  " +
+>                      citekey +
+>                      "\n" +
+>                      "\n")
+876c880
+<     c.execute('SELECT DISTINCT category FROM {} WHERE {cn}="text.pml" ORDER BY category'.format(
+---
+>     c.execute('SELECT DISTINCT category FROM {} WHERE {cn}="source.python" ORDER BY category'.format(
+889,891c893,895
+<     home1 = r'/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/'
+<     home = home1 + r'jupyterpymolsnips/'
+<     output1 = open(home + 'pml.js', 'w')
+---
+>     home1 = r'/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/'
+>     home = home1 + r'jupytercctbxsnips/'
+>     output1 = open(home + 'python.js', 'w')
+895,896c899,900
+<     output1.write("    var pymolpml = {" + "\n")
+<     output1.write("        'name' : 'pymolpml'," + "\n")
+---
+>     output1.write("    var pymolpython = {" + "\n")
+>     output1.write("        'name' : 'pymolpython'," + "\n")
+928,956c932,960
+<                 output1.write("                {" + "\n" + 
+<                               "                      'name': " + 
+<                               "'" + 
+<                               tabtrigger + 
+<                               "'," + 
+<                               "\n" + 
+<                               "                      'snippet': " + 
+<                               r"['%\\begin{code}{}" + 
+<                               r" \n" + 
+<                               r"%\\begin{minted}{python}" + 
+<                               r" \n" + 
+<                               body0 + 
+<                               r"\\end{minted}" + r" \n" + 
+<                               r"%\\caption{" + 
+<                               caption + 
+<                               r"\cite{" + 
+<                               citekey + 
+<                               r"}" + 
+<                               r"} \n" + 
+<                               r"%\\label{eq:" + 
+<                               tabtrigger + 
+<                               r"} \n" + 
+<                               r"%\\index{" + 
+<                               indexTag + 
+<                               r"}" + 
+<                               r"%\\end{code}" + 
+<                               r"',]," + 
+<                               "\n" + 
+<                               r"                }," + 
+---
+>                 output1.write("                {" + "\n" +
+>                               "                      'name': " +
+>                               "'" +
+>                               tabtrigger +
+>                               "'," +
+>                               "\n" +
+>                               "                      'snippet': " +
+>                               r"['%\\begin{code}{}" +
+>                               r" \n" +
+>                               r"%\\begin{minted}{python}" +
+>                               r" \n" +
+>                               body0 +
+>                               r"\\end{minted}" + r" \n" +
+>                               r"%\\caption{" +
+>                               caption +
+>                               r"\cite{" +
+>                               citekey +
+>                               r"}" +
+>                               r"} \n" +
+>                               r"%\\label{eq:" +
+>                               tabtrigger +
+>                               r"} \n" +
+>                               r"%\\index{" +
+>                               indexTag +
+>                               r"}" +
+>                               r"%\\end{code}" +
+>                               r"',]," +
+>                               "\n" +
+>                               r"                }," +
+967,1082d970
+< def writeWing(scopeWing, args):
+<     """ Snippets in Wing follow Python's percentsign(varname)s string substituion syntax. 
+<     The body of the snippet marker has the folowing syntax: %(varname|type|default)s.
+<     Both type and default are optional but the vertical bars must be present 
+<     if omitting type but including default. To write a snippet that includes 
+<     Python style string formats, escape each % by writing %% instead.
+<     
+<     The varname is the variable name. It is used in place of numbers in other snippet systems.
+<     This varname is only internal to the snippet.
+<     If varname is mirrored at multiple sites, the change at one site is propagated to other sites.
+<     ! prepended to the variable name indicates that the value should act as a tab stop even if 
+<     its value is mirrored from an earlier field with the same varname. 
+<     This has no effect if the field name is unique.
+<     
+<     Snippets can contain |!| to indicate the final resting position of the cursor
+<     after all other fields have been filled. 
+<     
+<     The snippets are stored one per file.
+<     The file name has the same file extension as the language.
+<     
+<     Snippets are stored in the directory *snippets* inside the Settings Directory.
+<     Snippets stored at the top level of this directory can be used with any file in the editor. 
+<     These global snippets are shown in the * tab of the Snippets tool.
+<     
+<     Snippets designed for a particular file type are stored in directories named with 
+<     the most common extension for the file type, for example py for Python.  
+<     
+<     Snippets designed for a particular file type are stored in directories named with 
+<     the most common extension for the file type, for example py for Python.
+<     
+<     Each of the file type directories may contain snippets that apply to any context 
+<     in files of that type and sub-directories named <context>.ctx for snippets designed
+<     for a particular context. <context> is replaced with the desired context name.
+<     
+<     On Windows the settings directory is called Wing Pro 7 and is placed within the 
+<     per-user application data directory. For Windows running on c: with an English localization 
+<     the location is: c:\\Users\\username\\AppData\\Roaming\\Wing Pro 7
+<     In Wing Personal the settings directory is instead named Wing Personal 7.2 and 
+<     in Wing 101 it is called`` Wing 101 7.2``.
+<     
+<     On Linux and OS X the settings directory is a sub-directory of your home directory:
+<     ~/.wingpro7
+<     ~/.wing-personal7
+<     ~/.wing-101-7
+<     
+<     ~/.wingpro7/snippets/pml
+<     
+<     Wing writes a .config file in the snippets directory. 
+<     Do not delete nor edit this file.
+<     Doing so could lead to the deletion of your files.
+<     
+<     The pml files will not have syntax highlighting at present in Wing.
+<     The pymolpysnips will have syntax highlighting of the Python syntax.
+<     
+<     The pml snippets should all start at the left column.
+<  
+<     We have to replace in body the tab stop markdown '${1:' with '%('  and '}' with ')s'.
+<     We have to duplicate the default value and have it serve as the variable name.
+<     The two values are to be separated by ||.
+<     The regex code below does this.
+<     
+<     The myregex1 rawstring is the search string.
+<     It has the special characters escaped with backspaces.
+<     The dot after the first brace is for the tab stop index number which we are removing.
+<     The (.*) expression captures the default parameter value.
+<     
+<     The mysub1 is the subsitution. 
+<     The \1 represent the default parameter value which we will repeat after ||.
+<     The value that goes between the pipes is the data type, string or date.
+<     I chose to leave this blank.
+<     
+<     We have to escape '%' with '%%' to avoid the confusion with the start of tab stops.
+<     
+<     """
+<     selected = args
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolpysnips/wingspymolpysnips/pml/'
+<     for (tabtrigger,
+<          language,
+<          scope,
+<          category,
+<          caption,
+<          body,
+<          body4json,
+<          body4bbedit,
+<          pythonYN,
+<          hasPythonVersionYN,
+<          indexTag,
+<          citekey,
+<          pageNumber) in selected:
+<         numSpaces0 = 0
+< #        myregex0 = r'%'
+< #        mysub0 = r'%%'
+< #        body0= re.sub(myregex0, mysub0, body)
+<         myregex0 = r'python;'
+<         mysub0 = r''
+<         body0= re.sub(myregex0, mysub0, body)
+<         myregex00 = r'python'
+<         mysub00 = r''
+<         body00= re.sub(myregex0, mysub0, body0)
+<         myregex01 = r'python end;'
+<         mysub01 = r''
+<         body01= re.sub(myregex01, mysub01, body0)
+<         myregex02 = r'python end'
+<         mysub02 = r''
+<         body02= re.sub(myregex02, mysub02, body01)
+<         myregex1 = r'\$\{.\:(.*)\}'
+<         mysub1 = r'%(\1||\1)s'
+<         body1= re.sub(myregex1, mysub1, body02)
+<         output1 = open(home + tabtrigger, 'w')
+<         sbody = "cmd.do('" + "')\ncmd.do('".join((numSpaces0 * "") + i for i in body1.splitlines()) + "')" + '\n\n' + '|!|'
+<         output1.write(sbody)
+<         output1.close()
+<     return
+< 
+< 
+< 
+1125,1131c1013,1015
+<            Are they stored here?
+< 
+<        ~/.jupyter/lab/user-settings/jupyterlab_snippets/
+< 
+<        or here?
+< 
+<        ~/Library/jupyter/snippets/
+---
+>     Store the snippets in          
+>          
+>      ~/Library/Jupyter/multimenus_snippets/cctbx2
+1134c1018
+<     home1 = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/jupyterlablatexpymolsnips/'
+---
+>     home1 = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/jupyterlablatexcctbxsnips/'
+1136c1020
+<     c.execute('SELECT DISTINCT category FROM {} WHERE {cn}="text.pml" ORDER BY category'.format(
+---
+>     c.execute('SELECT DISTINCT category FROM {} WHERE {cn}="source.python" ORDER BY category'.format(
+1151c1035
+<             print("Directory ", dirName, " Created ")
+---
+>             print("Directory ", dirName,  " Created ")
+1153c1037
+<             print("Directory ", dirName, " already exists")
+---
+>             print("Directory ", dirName,  " already exists")
+1158c1042
+<             print("Directory ", dirName, " Created ")
+---
+>             print("Directory ", dirName,  " Created ")
+1160c1044
+<             print("Directory ", dirName, " already exists")
+---
+>             print("Directory ", dirName,  " already exists")
+1180c1064
+<                 outp1 = '"""' + "\n" + body0 + '"""' + "\n"
+---
+>                 outp1 = '"""'+"\n"+body0+'"""'+"\n"
+1190,1213c1074,1097
+<                 outp1 = (r"%\begin{code}{}" + 
+<                          "\n" + 
+<                          r"%\begin{minted}{python}" + 
+<                          "\n" + 
+<                          body3 + 
+<                          "\n" + 
+<                          r"%\end{minted}" + 
+<                          "\n" + 
+<                          r"%\caption{" + 
+<                          caption + 
+<                          r"\cite{" + 
+<                          citekey + 
+<                          r"}" + 
+<                          r"}" + 
+<                          "\n" + 
+<                          r"%\label{eq:" + 
+<                          tabtrigger + 
+<                          r"}" + 
+<                          "\n" + 
+<                          r"%\index{" + 
+<                          indexTag + 
+<                          r"}" + 
+<                          "\n" + 
+<                          r"%\end{eqfloat}" + 
+---
+>                 outp1 = (r"%\begin{code}{}" +
+>                          "\n" +
+>                          r"%\begin{minted}{python}" +
+>                          "\n" +
+>                          body3 +
+>                          "\n" +
+>                          r"%\end{minted}" +
+>                          "\n" +
+>                          r"%\caption{" +
+>                          caption +
+>                          r"\cite{" +
+>                          citekey +
+>                          r"}" +
+>                          r"}" +
+>                          "\n" +
+>                          r"%\label{eq:" +
+>                          tabtrigger +
+>                          r"}" +
+>                          "\n" +
+>                          r"%\index{" +
+>                          indexTag +
+>                          r"}" +
+>                          "\n" +
+>                          r"%\end{eqfloat}" +
+1221c1105
+< def writeJupyterLab2(scopeJupyterLab, args):
+---
+> def writeJupyterLab(scopeJupyterLab, args):
+1223,1225c1107
+<     Writes code for JupyterLab multimenu pymolpysnips library.
+<     
+<     Reformats the 'body' for snippets used by JupyterLab.
+---
+>     Reformats the 'body' for clippings used by JupyterLab.
+1245,1249d1126
+<     
+<     Need to pass the python --- python end code blocks without modification.
+<     Seems if then, while construct would do the trick.
+<     
+<     
+1254c1131
+<     home1 = '/Users/blaine/Manuscripts/CCTBXsnips/cctbxsnips/jupyterlabcctbx2/'
+---
+>     home1 = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/jupyterlabcctbxsnips/'
+1271c1148
+<             print("Directory ", dirName, " Created ")
+---
+>             print("Directory ", dirName,  " Created ")
+1273c1150
+<             print("Directory ", dirName, " already exists")
+---
+>             print("Directory ", dirName,  " already exists")
+1278c1155
+<             print("Directory ", dirName, " Created ")
+---
+>             print("Directory ", dirName,  " Created ")
+1280c1157
+<             print("Directory ", dirName, " already exists")
+---
+>             print("Directory ", dirName,  " already exists")
+1297c1174,1179
+<                 numSpaces = 0
+---
+>                 myregex0 = r"\$0"
+>                 mysub0 = r""
+>                 body0 = re.sub(myregex0, mysub0, body)
+>                 outp1 = '"""'+"\n"+body0+'"""'+"\n"
+>                 output1.write(outp1)
+>                 # myregex1 = r"\$\{\d+:.+\}"
+1305,1307c1187,1196
+<                 if pythonYN == "N":
+<                     body4 = "cmd.do('" + "')\ncmd.do('".join((numSpaces * "") + i for i in body3.splitlines()) + "')"
+<                     outp1 = (body4 + "\n")
+---
+>                 output1 = open(dirName + '/' + tabtrigger + '.py', 'a')
+>                 outp1 = (body3 +
+>                          "\n" +
+>                          r"# Description:  " +
+>                          caption +
+>                          "\n" +
+>                          r"# Source:  " +
+>                          citekey +
+>                          "\n" +
+>                          "\n")
+1309,1316c1198,1199
+<                     output1.write(outp1)
+<                     output1.close()
+<                 elif pythonYN == "Y":
+<                     outp1 = (body3 + "\n")
+<                     output1.write(outp1)
+<                     output1.close()
+<                 else:
+<                     print("The column 'pythonYN' is missing a value. Edit the database.")
+---
+>                 output1.write(outp1)
+>                 output1.close()
+1319c1202,1204
+< def writeJupyterLabAnnotatedpy(scopeJupyterLab, args):
+---
+> 
+> 
+> def writeJupyterLab2(scopeJupyterLab, args):
+1352c1237
+<     home1 = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolpysnips/jupyterlab2pymolpysnips/'
+---
+>     home1 = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/jupyterlabcctbxsnips2/'
+1354c1239
+<     c.execute('SELECT DISTINCT category FROM {} WHERE {cn}="text.pml" ORDER BY category'.format(
+---
+>     c.execute('SELECT DISTINCT category FROM {} WHERE {cn}="source.python" ORDER BY category'.format(
+1432c1317
+<     The Snippets folder is stored in a bayeseq.tmbundle that is a folder too.
+---
+>     The Snippets folder is stored in python.tmbundle that is a folder too.
+1442c1327
+<     home3 = r'PyMOL.tmbundle/'
+---
+>     home3 = r'cctbx.tmbundle/'
+1475c1360
+<         output1 = open(home1 + home2 + home3 + home4 + 
+---
+>         output1 = open(home1 + home2 + home3 + home4 +
+1533c1418
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/ultisnippymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/ultisnipcctbxsnips/'
+1549c1434
+<             +body + "\n\n" + "${0}" + "\n"\
+---
+>             + body + '\n' \
+1562c1447
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/neosnippetspymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/neosnippetscctbxsnips/'
+1583,1591c1468,1476
+<                             +"\n"
+<                             +"abbr    "
+<                             +tabtrigger
+<                             +"\n"
+<                             +"alias   "
+<                             +tabtrigger
+<                             +"\n"
+<                             +sbody 
+<                             + "\n\n" + "${0}" + "\n\n")
+---
+>                             + "\n"
+>                             + "abbr    "
+>                             + tabtrigger
+>                             + "\n"
+>                             + "alias   "
+>                             + tabtrigger
+>                             + "\n"
+>                             + sbody
+>                             + "\n\n")
+1598c1483
+<     """A single file for all pml snippets for the text editor Geany. 
+---
+>     """A single file for all python snippets for the text editor Geany. 
+1601c1486
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/geanypymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/geanycctbxsnips/'
+1632c1517
+<             outp1 = tabtrigger + '=' + body4 + "\n\n" + "${0}" + "\n"
+---
+>             outp1 = tabtrigger + '=' + body4 + '\n'
+1642c1527
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/espressopymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/espressocctbxsnips/'
+1665c1550
+<             sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines()) + "\n\n" + "${0}" + "\n"
+---
+>             sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines())
+1686c1571
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/katepymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/katecctbxsnips/'
+1688,1689c1573,1574
+<     output1 = open(home + 'katepmlsnippets.xml', 'w')
+<     outpA = r'<snippets namespace="" license="GPL v3+" filetypes="pml" authors="Blane Mooers" name="PyMOL Snippets">' + '\n'\
+---
+>     output1 = open(home + 'katepythonsnippets.xml', 'w')
+>     outpA = r'<snippets namespace="" license="GPL v3+" filetypes="python" authors="Blane Mooers" name="PyMOL Snippets">' + '\n'\
+1708c1593
+<             sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines()) + "\n\n" + "${0}" + "\n"
+---
+>             sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines())
+1731c1616
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/vscpymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/vsccctbxsnips/'
+1749c1634
+<             '    "body": ' + body4json + ',' + "\n\n" + "${0}" + "\n"\
+---
+>             '    "body": ' + body4json + ',' + '\n'\
+1752a1638
+>         
+1756,1763d1641
+< def writeBrackets(scopeBrackets, args):
+<     """
+<     A single yml file is written out for the Brackets text editor.
+<     This is a remake (9 March 2019) of the Old Brackets exporter.
+<     It is inspired by the brackets-snippets extension by edc.
+<     https://github.com/chuyik/brackets-snippets
+< 
+<     Store the yml file in ~/Library/Application\ Support/Brackets/extensions/user
+1765,1768c1643,1715
+<     The multi line code block has to be indented by 8 spaces.
+<     The terminal tabe stop seems need to be enclosed by braces.
+<     I think the braces are optional for other text editors.
+<     If not, I can write a regex to replace the ${0} with $0.
+---
+> def writeWings(scopeWing, args):
+>     """ Snippets in Wing follow Python's percentsign(varname)s string substituion syntax. 
+>     The body of the snippet marker has the folowing syntax: %(varname|type|default)s.
+>     Both type and default are optional but the vertical bars must be present 
+>     if omitting type but including default. To write a snippet that includes 
+>     Python style string formats, escape each % by writing %% instead.
+>     
+>     The varname is the variable name. It is used in place of numbers in other snippet systems.
+>     This varname is only internal to the snippet.
+>     If varname is mirrored at multiple sites, the change at one site is propagated to other sites.
+>     ! prepended to the variable name indicates that the value should act as a tab stop even if 
+>     its value is mirrored from an earlier field with the same varname. 
+>     This has no effect if the field name is unique.
+>     
+>     Snippets can contain |!| to indicate the final resting position of the cursor
+>     after all other fields have been filled. 
+>     
+>     The snippets are stored one per file.
+>     The file name has the same file extension as the language.
+>     
+>     Snippets are stored in the directory *snippets* inside the Settings Directory.
+>     Snippets stored at the top level of this directory can be used with any file in the editor. 
+>     These global snippets are shown in the * tab of the Snippets tool.
+>     
+>     Snippets designed for a particular file type are stored in directories named with 
+>     the most common extension for the file type, for example py for Python.  
+>     
+>     Snippets designed for a particular file type are stored in directories named with 
+>     the most common extension for the file type, for example py for Python.
+>     
+>     Each of the file type directories may contain snippets that apply to any context 
+>     in files of that type and sub-directories named <context>.ctx for snippets designed
+>     for a particular context. <context> is replaced with the desired context name.
+>     
+>     On Windows the settings directory is called Wing Pro 7 and is placed within the 
+>     per-user application data directory. For Windows running on c: with an English localization 
+>     the location is: c:\\Users\\username\\AppData\\Roaming\\Wing Pro 7
+>     In Wing Personal the settings directory is instead named Wing Personal 7.2 and 
+>     in Wing 101 it is called`` Wing 101 7.2``.
+>     
+>     On Linux and OS X the settings directory is a sub-directory of your home directory:
+>     ~/.wingpro7
+>     ~/.wing-personal7
+>     ~/.wing-101-7
+>     
+>     ~/.wingpro7/snippets/python
+>     
+>     Wing writes a .config file in the snippets directory. 
+>     Do not delete nor edit this file.
+>     Doing so could lead to the deletion of your files.
+>     
+>     The python files will not have syntax highlighting at present in Wing.
+>     The pymolpysnips will have syntax highlighting of the Python syntax.
+>     
+>     The python snippets should all start at the left column.
+>  
+>     We have to replace in body the tab stop markdown '${1:' with '%('  and '}' with ')s'.
+>     We have to duplicate the default value and have it serve as the variable name.
+>     The two values are to be separated by ||.
+>     The regex code below does this.
+>     
+>     The myregex1 rawstring is the search string.
+>     It has the special characters escaped with backspaces.
+>     The dot after the first brace is for the tab stop index number which we are removing.
+>     The (.*) expression captures the default parameter value.
+>     
+>     The mysub1 is the subsitution. 
+>     The \1 represent the default parameter value which we will repeat after ||.
+>     The value that goes between the pipes is the data type, string or date.
+>     I chose to leave this blank.
+>     
+>     We have to escape '%' with '%%' to avoid the confusion with the start of tab stops.
+>     
+1771c1718,2848
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/bracketspymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/wingscctbxsnips/python/'
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         myregex0 = r'%'
+>         mysub0 = r'%%'
+>         body0= re.sub(myregex0, mysub0, body)
+>         myregex1 = r'\$\{.\:(.*)\}'
+>         mysub1 = r'%(\1||\1)s'
+>         body1= re.sub(myregex1, mysub1, body0)
+>         output1 = open(home + tabtrigger, 'w')
+>         sbody = body1 + '\n\n' + '|!|'
+>         output1.write(sbody)
+>         output1.close()
+>     return
+>          
+>     
+> 
+> def writeBrackets(scopeBrackets, args):
+>     """
+>     A single yml file is written out for the Brackets text editor.
+>     This is a remake (9 March 2019) of the Old Brackets exporter.
+>     It is inspired by the brackets-snippets extension by edc.
+>     https://github.com/chuyik/brackets-snippets
+> 
+>     Store the yml file in ~/Library/Application\ Support/Brackets/extensions/user
+> 
+>     The multi line code block has to be indented by 8 spaces.
+>     The terminal tabe stop seems need to be enclosed by braces.
+>     I think the braces are optional for other text editors.
+>     If not, I can write a regex to replace the ${0} with $0.
+>     """
+>     selected = args
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/bracketscctbxsnips/'
+>     output1 = open(home + 'bracketspymolsnips.yml', 'w')
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         numSpaces = 8
+>         s = body
+>         sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines())
+>         outp1 = '- trigger: ' + tabtrigger + '\n'\
+>             '  scope: python' + '\n'\
+>             '  caption: ' + caption + '\n'\
+>             '  tag: ' + category + '\n'\
+>             '  tagHide: true' + '\n'\
+>             '  source: github/MooersLab/cctbxsnips' + '\n'\
+>             '  text: |' + '\n'\
+>             + sbody + '\n'\
+>             '\n'
+>         output1.write(outp1)
+>     output1.close()
+>     return
+> 
+> 
+> def writeBracketsOld(scopeBrackets, args):
+>     r"""
+>     Brackets is free. open source, and avialabe for multiple platforms (Mac OS, Windows, most Linux).
+>     It is created and distributed by Adobe Systems.
+>     Brackets focuses  on developement of JavaScript, CSS and HTML code for webpages.
+>     Brackets has a live html, css and js editing functionality.
+>     This means that a preview pane is available to see the output as the code is changed.
+>     This is like the preview pane for latex in Atom.
+>     Brackets looks like the a good choice for editing html files.
+>     More about its features can be found here https://en.wikipedia.org/wiki/Brackets_(text_editor).
+> 
+>     A single file for all snippets is written out to a yml file.
+>     This file has different sections for different programming languages.
+>     Brackets supports 38 programming languages out of the box.
+>     I may have to write an extension for python.
+>     The snippets extension needs to be installed via the extension manager.
+>     This action leaves a shortcut on the right margin of the gui in the form a lightbulb.
+>     The snippets are stored in a subfolder in ~/Library/Application\ Support/Brackets/extensions/user
+>     This YouTube video is a useful introducton to the snippet extension: https://www.youtube.com/watch?v=oleenIQ-5gk.
+> 
+>     Several snippet managers are available.
+>     The [Text Mate inspired snippet manager](https://github.com/chuyik/brackets-snippets) was used to make user had made a snippet manager.
+>     """
+>     selected = args
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/bracketscctbxsnips/'
+>     output1 = open(home + scopeBrackets + '.yml', 'w')
+>     outp1 = '# ---' + '\n'\
+>         + '# PyMOL-python' + '\n'\
+>         + '# From ' + '\n'\
+>         + '# ---' + '\n'
+>     output1.write(outp1)
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         numSpaces = 8
+>         s = body
+>         sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines())
+>         outp2 = '- trigger: '+tabtrigger+'\n'\
+>             '  scope: ' + scopeBrackets + '\n'\
+>             '  caption: ' + caption + '\n'\
+>             '  text: |' + '\n'\
+>                 + sbody + '\n'
+>         output1.write(outp1)
+>     output1.write('}' + '\n')
+>     output1.close()
+>     return
+> 
+> 
+> def writeNpp():
+>     r"""Notepad++ is a freely available and designed for Windows.
+>     It can be run on Linux and Mac OS after being packaged by wine.
+> 
+>     The NppSnippets Plugin\footnote{\url{https://www.fesevur.com/nppsnippets/}} is used to manage snippets.
+>     You can dock the plugin after selecting it from the Plugin pulldown.
+>     A submenu of the available snippets will appear.
+> 
+>     Then you can select a specific language.
+>     The snippets for that language will appear.
+>     The user can then select the snippet that is desired by its name.
+> 
+>     The snippets are broken in half so that they can surround selected text.
+>     This is the first time that I have found this feature.
+> 
+>     I am not sure yet if tabtriggers are available for Notepad++.
+>     Then right click on the name of the language.
+>     The option to export the snippets for that language will appear.
+> 
+>     The NppSnippet plugin stores snippets in a sqlite database for each language.
+>     A database for a language can be exported by right clicking on it.
+>     I exported the library for the PHP language.
+>     The library is a relational database with multiple tables.
+> 
+>     I found a 26 page manual on NppSnippets.
+>     It describes the snippet database structure.
+>     I need to read this manual before I write a writeNpp() function that uses the sqlite module.
+> 
+>     The PyMOL language is not available in the default distribution of Notepad++.
+>     Fortunately, a user define a new language\footnote{\url{http://docs.notepad-plus-plus.org/index.php/User_Defined_Languages}}.
+>     """
+>     return
+> 
+> 
+> def writeJupyterClippingBody(scopeJupyterClippingBody, args):
+>     """
+>     Reformats the ST3 body for Jupyter and Jupyter-Lab clippings that can be loaded with the load majic.
+> 
+>     The body is first written a comment to provide a visual guide to the sites to be edited.
+>     The last tab stop is deleted from this body.
+>     I put the whole body between triple quotes because I was too lazy to use parse the body and use hashmarks
+>     to comment out each line.
+> 
+>     Then the body is written again with regexes used to remove the tabstops while leaving the default value.
+> 
+>     This website was helpful for testing regexes https://regex101.com/.
+> 
+>     """
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/jupytercctbx2/'
+>     selected = args
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         output1 = open(home + tabtrigger + '.py', 'w')
+>         if body is not None:
+>             myregex0 = r"\$0"
+>             mysub0 = r""
+>             body0 = re.sub(myregex0, mysub0, body)
+>             outp1 = '""""'+"\n"+body0+'""""'+"\n"
+>             output1.write(outp1)
+> #           myregex1 = r"\$\{\d+:.+\}"
+>             myregex1 = "\$\{\d:"
+>             mysub1 = r""
+>             body1 = re.sub(myregex1, mysub1, body)
+>             myregex2 = r"\}"
+>             body2 = re.sub(myregex2, mysub1, body1)
+>             myregex3 = r"\$0"
+>             body3 = re.sub(myregex3, mysub1, body2)
+>             output1 = open(dirName + '/' + tabtrigger + '.py', 'a')
+>             outp1 = (body3 +
+>                      "\n" +
+>                      r"# Description:  " +
+>                      caption +
+>                      "\n" +
+>                      r"# Source:  " +
+>                      citekey +
+>                      "\n" +
+>                      "\n")
+>             output1.write(body3)
+>         output1.close()
+>     return
+> 
+> 
+> def writeJupyter2(scopeJupyter, args):
+>     """A single file per scope is written out for Jupyter notebooks.
+>        The snippets are in a format for the common.js file.
+>        The intent is for the snippets to appear clustered in submenus
+>        of the eqml menu.
+>        Eventually an outer for loop is needed to step through each
+>        member of a category or cluster of snippets.
+>        The for loop could walk through a list of categories.
+> 
+>        This function does not write out the required flanking code
+>        to give a functional common.js file. I
+>        I still need to add this code to make it useful for others.
+> 
+>        This function includes the LaTeX markup that would be
+>        useful for writing a book about PyMOL.
+> 
+>        TBD:
+>        The tabstops need to be removed from the body via deleciate regex commands.
+>        The '${n:' and only the enclosing '}' need to be removed while leaving the
+>        default parameter value.
+> 
+>     """
+> 
+>     c.execute('SELECT DISTINCT category FROM {} WHERE {cn}="source.python" ORDER BY category'.format(
+>         table_name, cn=col_3))
+>     distinct = c.fetchall()
+>     # if print_out:
+>     #     numCat = len(distinct)
+>     #     print("\n"+"There are " + str(numCat) + " distinct categories of snippets" +
+>     #           "\n"+"(in format for pasting as a list into Rmarkdown:)"+"\n")
+>     #     for dis in distinct:
+>     #         print("- " + str(dis[0]))
+>     # return distinct
+> 
+>     selected = args
+> 
+>     home1 = r'/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/'
+>     home = home1 + r'jupytercctbxsnips/'
+>     output1 = open(home + 'python.js', 'w')
+> 
+>     # cats = ['DNN', 'classification']
+> 
+>     output1.write("    var pymolpython = {" + "\n")
+>     output1.write("        'name' : 'pymolpython'," + "\n")
+>     output1.write("        'sub-menu' : [" + "\n")
+> 
+>     for x in distinct:
+>         xx = str(x[0])
+>         output1.write("            {" + "\n")
+>         output1.write("            'name' : '" + xx + "'," + "\n")
+>         output1.write("            'sub-menu' : [" + "\n")
+> 
+>         for (tabtrigger,
+>              language,
+>              scope,
+>              category,
+>              caption,
+>              body,
+>              body4json,
+>              body4bbedit,
+>              pythonYN,
+>              hasPythonVersionYN,
+>              indexTag,
+>              citekey,
+>              pageNumber) in selected:
+>             if category == xx:
+>                 myregex1 = r"\\"
+>                 mysub1 = r"\\\\"
+>                 body1 = re.sub(myregex1, mysub1, body)
+>                 myregex2 = r"\n"
+>                 mysub2 = r"\\n"
+>                 body0 = re.sub(myregex2, mysub2, body1)
+>                 # myregex3 = r"\n${0}"
+>                 # mysub3 = r"\\n"
+>                 # body0 = re.sub(myregex3, mysub3, body2)
+>                 output1.write("                {" + "\n" +
+>                               "                      'name': " +
+>                               "'" +
+>                               tabtrigger +
+>                               "'," +
+>                               "\n" +
+>                               "                      'snippet': " +
+>                               r"['%\\begin{code}{}" +
+>                               r" \n" +
+>                               r"%\\begin{minted}{python}" +
+>                               r" \n" +
+>                               body0 +
+>                               r"\\end{minted}" + r" \n" +
+>                               r"%\\caption{" +
+>                               caption +
+>                               r"\cite{" +
+>                               citekey +
+>                               r"}" +
+>                               r"} \n" +
+>                               r"%\\label{eq:" +
+>                               tabtrigger +
+>                               r"} \n" +
+>                               r"%\\index{" +
+>                               indexTag +
+>                               r"}" +
+>                               r"%\\end{code}" +
+>                               r"',]," +
+>                               "\n" +
+>                               r"                }," +
+>                               "\n")
+>         output1.write("                ]," + "\n")
+>         output1.write("            }," + "\n")
+> 
+>     output1.write("            ]," + "\n")
+>     output1.write("        };" + "\n")
+>     output1.close()
+>     return
+> 
+> 
+> def PascalCase(s):
+>     """Convert the string s into 
+>     PascalCase without regard to 
+>     the terminal punctuation.
+>     If you want to omit the terminal
+>     punctuation, change the 0 after len(s)
+>     to a 1."""
+>     if(len(s) == 0):
+>         return
+>     s1 = ''
+>     s1 += s[0].upper()
+>     for i in range(1, len(s) - 0):
+>         if (s[i] == ' '):
+>             s1 += s[i + 1].upper()
+>             i += 1
+>         elif(s[i - 1] != ' '):
+>             s1 += s[i]
+>     return(s1)
+> 
+> 
+> def writeJupyterLabLaTeX(scopeJupyterLab, args):
+>     """
+>     Reformats the 'body' for clippings used by JupyterLab.
+>     The clippings are written out to subfolders with 
+>     the category name. This name is rewritten in PascalCase
+>     using the above PascalCase() function.
+> 
+>     This version of the function writes out the metadata 
+>     required for writing a book in LaTeX.
+> 
+>     This website was helpful for testing regexes https://regex101.com/.
+> 
+>     The elements of distinct are in a list of strings with a comma in an expected place.
+>     The use of str(x[0]) was to extracting from distinct a string in a useful
+>     Converting an element to a string with the str() function
+>     leads to parenthesis around the string, which is bad for a
+>     subdirectory name. Instead, use join to remove the ().
+> 
+>     This function extracts the list of categories from the database
+>     so there is no need to worry about adding more categories nor 
+>     changes in category names. 
+> 
+>     Store the snippets in          
+>          
+>      ~/Library/Jupyter/multimenus_snippets/cctbx2
+> 
+>     """
+>     home1 = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/jupyterlablatexcctbxsnips/'
+>     selected = args
+>     c.execute('SELECT DISTINCT category FROM {} WHERE {cn}="source.python" ORDER BY category'.format(
+>         table_name, cn=col_3))
+>     distinct = c.fetchall()
+> 
+>     selected = args
+>     print('Distinct = ', distinct)
+> 
+>     for x in distinct:
+>         xx = str(x[0])
+>         xxxx = PascalCase(xx)
+>         dirName = home1 + ''.join(xxxx)
+> 
+>         # Create target directory & all intermediate directories if don't exists
+>         try:
+>             os.makedirs(dirName)
+>             print("Directory ", dirName,  " Created ")
+>         except FileExistsError:
+>             print("Directory ", dirName,  " already exists")
+> 
+>         # Create target directory & all intermediate directories if don't exists
+>         if not os.path.exists(dirName):
+>             os.makedirs(dirName)
+>             print("Directory ", dirName,  " Created ")
+>         else:
+>             print("Directory ", dirName,  " already exists")
+> 
+>         for (tabtrigger,
+>              language,
+>              scope,
+>              category,
+>              caption,
+>              body,
+>              body4json,
+>              body4bbedit,
+>              pythonYN,
+>              hasPythonVersionYN,
+>              indexTag,
+>              citekey,
+>              pageNumber) in selected:
+>             if category == ''.join(x):
+>                 output1 = open(dirName + '/' + tabtrigger + '.tex', 'w')
+>                 myregex0 = r"\$0"
+>                 mysub0 = r""
+>                 body0 = re.sub(myregex0, mysub0, body)
+>                 outp1 = '"""'+"\n"+body0+'"""'+"\n"
+>                 output1.write(outp1)
+>     #           myregex1 = r"\$\{\d+:.+\}"
+>                 myregex1 = "\$\{\d:"
+>                 mysub1 = r""
+>                 body1 = re.sub(myregex1, mysub1, body)
+>                 myregex2 = r"\}"
+>                 body2 = re.sub(myregex2, mysub1, body1)
+>                 myregex3 = r"\${0"
+>                 body3 = re.sub(myregex3, mysub1, body2)
+>                 outp1 = (r"%\begin{code}{}" +
+>                          "\n" +
+>                          r"%\begin{minted}{python}" +
+>                          "\n" +
+>                          body3 +
+>                          "\n" +
+>                          r"%\end{minted}" +
+>                          "\n" +
+>                          r"%\caption{" +
+>                          caption +
+>                          r"\cite{" +
+>                          citekey +
+>                          r"}" +
+>                          r"}" +
+>                          "\n" +
+>                          r"%\label{eq:" +
+>                          tabtrigger +
+>                          r"}" +
+>                          "\n" +
+>                          r"%\index{" +
+>                          indexTag +
+>                          r"}" +
+>                          "\n" +
+>                          r"%\end{eqfloat}" +
+>                          "\n")
+>                 # print("The content of outp1 is as follows:" + "\n" + outp1)
+>                 output1.write(outp1)
+>                 output1.close()
+>     return
+> 
+> 
+> def writeJupyterLab(scopeJupyterLab, args):
+>     """
+>     Reformats the 'body' for clippings used by JupyterLab.
+>     The clippings are written out to subfolders with 
+>     the category name. This name is rewritten in PascalCase
+>     using the above PascalCase() function.
+> 
+>     This version of the function writes out the metadata 
+>     required for writing a book in LaTeX. Use the function
+>     without LaTeX in the name for use in Python.
+> 
+>     This website was helpful for testing regexes https://regex101.com/.
+> 
+>     The elements of distinct are in a list of strings with a comma in an expected place.
+>     The use of str(x[0]) was to extracting from distinct a string in a useful
+>     Converting an element to a string with the str() function
+>     leads to parenthesis around the string, which is bad for a
+>     subdirectory name. Instead, use join to remove the ().
+> 
+>     This function extracts the list of categories from the database
+>     so there is no need to worry about adding more categories nor 
+>     changes in category names. 
+> 
+>     Blaine Mooers and OU Board of Regents
+>     26 April 2020
+>     """
+>     home1 = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/jupyterlabcctbxsnips/'
+>     selected = args
+>     c.execute('SELECT DISTINCT category FROM {} WHERE {cn}="source.python" ORDER BY category'.format(
+>         table_name, cn=col_3))
+>     distinct = c.fetchall()
+> 
+>     selected = args
+>     print('Distinct = ', distinct)
+> 
+>     for x in distinct:
+>         xx = str(x[0])
+>         xxxx = PascalCase(xx)
+>         dirName = home1 + ''.join(xxxx)
+> 
+>         # Create target directory & all intermediate directories if don't exists
+>         try:
+>             os.makedirs(dirName)
+>             print("Directory ", dirName,  " Created ")
+>         except FileExistsError:
+>             print("Directory ", dirName,  " already exists")
+> 
+>         # Create target directory & all intermediate directories if don't exists
+>         if not os.path.exists(dirName):
+>             os.makedirs(dirName)
+>             print("Directory ", dirName,  " Created ")
+>         else:
+>             print("Directory ", dirName,  " already exists")
+> 
+>         for (tabtrigger,
+>              language,
+>              scope,
+>              category,
+>              caption,
+>              body,
+>              body4json,
+>              body4bbedit,
+>              pythonYN,
+>              hasPythonVersionYN,
+>              indexTag,
+>              citekey,
+>              pageNumber) in selected:
+>             if category == ''.join(x):
+>                 output1 = open(dirName + '/' + tabtrigger + '.py', 'w')
+>                 myregex0 = r"\$0"
+>                 mysub0 = r""
+>                 body0 = re.sub(myregex0, mysub0, body)
+>                 outp1 = '"""'+"\n"+body0+'"""'+"\n"
+>                 output1.write(outp1)
+>                 # myregex1 = r"\$\{\d+:.+\}"
+>                 myregex1 = "\$\{\d:"
+>                 mysub1 = r""
+>                 body1 = re.sub(myregex1, mysub1, body)
+>                 myregex2 = r"\}"
+>                 body2 = re.sub(myregex2, mysub1, body1)
+>                 myregex3 = r"\${0"
+>                 body3 = re.sub(myregex3, mysub1, body2)
+>                 output1 = open(dirName + '/' + tabtrigger + '.py', 'a')
+>                 outp1 = (body3 +
+>                          "\n" +
+>                          r"# Description:  " +
+>                          caption +
+>                          "\n" +
+>                          r"# Source:  " +
+>                          citekey +
+>                          "\n" +
+>                          "\n")
+>                 # print("The content of outp1 is as follows:" + "\n" + outp1)
+>                 output1.write(outp1)
+>                 output1.close()
+>     return
+> 
+> 
+> 
+> def writeJupyterLab2(scopeJupyterLab, args):
+>     """
+>     Writes code for JupyterLab multimenu pymolpysnips library.
+> 
+>     Reformats the 'body' for snippets used by JupyterLab.
+>     The clippings are written out to subfolders with
+>     the category name. This name is rewritten in PascalCase
+>     using the above PascalCase() function.
+> 
+>     This version of the function writes out the metadata
+>     required for writing a book in LaTeX. Use the function
+>     without LaTeX in the name for use in Python.
+> 
+>     This website was helpful for testing regexes https://regex101.com/.
+> 
+>     The elements of distinct are in a list of strings with a comma in an expected place.
+>     The use of str(x[0]) was to extracting from distinct a string in a useful
+>     Converting an element to a string with the str() function
+>     leads to parenthesis around the string, which is bad for a
+>     subdirectory name. Instead, use join to remove the ().
+> 
+>     This function extracts the list of categories from the database
+>     so there is no need to worry about adding more categories nor
+>     changes in category names.
+> 
+>     Need to pass the python --- python end code blocks without modification.
+>     Seems if then, while construct would do the trick.
+> 
+> 
+> 
+>     Blaine Mooers and OU Board of Regents
+>     26 April 2020
+>     """
+>     home1 = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/jupyterlabcctbxsnips2/'
+>     selected = args
+>     c.execute('SELECT DISTINCT category FROM {} WHERE {cn}="source.python" ORDER BY category'.format(
+>         table_name, cn=col_3))
+>     distinct = c.fetchall()
+> 
+>     selected = args
+>     print('Distinct = ', distinct)
+> 
+>     for x in distinct:
+>         xx = str(x[0])
+>         xxxx = PascalCase(xx)
+>         dirName = home1 + ''.join(xxxx)
+> 
+>         # Create target directory & all intermediate directories if don't exists
+>         try:
+>             os.makedirs(dirName)
+>             print("Directory ", dirName, " Created ")
+>         except FileExistsError:
+>             print("Directory ", dirName, " already exists")
+> 
+>         # Create target directory & all intermediate directories if don't exists
+>         if not os.path.exists(dirName):
+>             os.makedirs(dirName)
+>             print("Directory ", dirName, " Created ")
+>         else:
+>             print("Directory ", dirName, " already exists")
+> 
+>         for (tabtrigger,
+>              language,
+>              scope,
+>              category,
+>              caption,
+>              body,
+>              body4json,
+>              body4bbedit,
+>              pythonYN,
+>              hasPythonVersionYN,
+>              indexTag,
+>              citekey,
+>              pageNumber) in selected:
+>             if category == ''.join(x):
+>                 output1 = open(dirName + '/' + tabtrigger + '.py', 'a+')
+>                 numSpaces = 0
+>                 myregex0 = r"\$0"
+>                 mysub0 = r""
+>                 s = re.sub(myregex0, mysub0, body)
+>                 sbody = "cmd.do('" + "')\ncmd.do('".join((numSpaces * "") + i for i in s.splitlines()) + "')" + "\n"
+>                 outp1 = '"""' + "\n" + sbody + '"""' + "\n"
+>                 output1.write(outp1)
+>                 # myregex1 = r"\$\{\d+:.+\}"
+>                 myregex1 = "\$\{\d:"
+>                 mysub1 = r""
+>                 body1 = re.sub(myregex1, mysub1, body)
+>                 myregex2 = r"\}"
+>                 body2 = re.sub(myregex2, mysub1, body1)
+>                 myregex3 = r"\${0"
+>                 body3 = re.sub(myregex3, mysub1, body2)
+>                 body4 = "cmd.do('" + "')\ncmd.do('".join((numSpaces * "") + i for i in body3.splitlines()) + "')" + "\n"
+>                 outp1 = (body4 +
+>                          "\n" +
+>                          r"# Description:  " +
+>                          caption +
+>                          "\n" +
+>                          r"# Source:  " +
+>                          citekey +
+>                          "\n" +
+>                          "\n")
+>                 # print("The content of outp1 is as follows:" + "\n" + outp1)
+>                 output1.write(outp1)
+>                 output1.close()
+>     return
+> 
+> 
+> def writeTM(scopeTM, args):
+>     """
+>     Snippets for Textmate.
+>     One file per snippet.
+>     The snippets have an unique uuid code generated for each one.
+>     The snippets are stored in a folder called Snippets.
+>     The Snippets folder is stored in python.tmbundle that is a folder too.
+>     This bundle folder also has a plist file with a uuid and a dependences.json file.
+>     The dependency is pygments.
+> 
+>     I may add the citation key to the comment or desciption key.
+> 
+>     '% ' + 'Source: ' + citekey + '\n'\
+>     '% ' + 'Page number: ' + pageNumber + ' Eq no.: ' + equationNumber + '\n' + body + '\n' +'</string>' + '\n'\
+> 
+>     """
+>     home3 = r'cctbx.tmbundle/'
+>     libpath = home1 + home2 + home3
+>     if not os.path.exists(os.path.dirname(libpath)):
+>         try:
+>             os.makedirs(os.path.dirname(libpath))
+>         except OSError as exc:  # Guard against race condition
+>             if exc.errno != errno.EEXIST:
+>                 raise
+> 
+>     home4 = r'Snippets/'
+>     libpath2 = home1 + home2 + home3 + home4
+> 
+>     if not os.path.exists(os.path.dirname(libpath2)):
+>         try:
+>             os.makedirs(os.path.dirname(libpath2))
+>         except OSError as exc:  # Guard against race condition
+>             if exc.errno != errno.EEXIST:
+>                 raise
+> 
+>     selected = args
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         output1 = open(home1 + home2 + home3 + home4 +
+>                        tabtrigger + '.tmSnippet', 'w')
+>         outp1 = '<?xml version="1.0" encoding="UTF-8"?>' + '\n' \
+>             '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">' + '\n'\
+>             '<plist version="1.0">' + '\n'\
+>             '<dict>' + '\n'\
+>             '    <key>content</key>' + '\n'\
+>             '    <string>' + '\n' + '% ' + caption + '\n' + body + '\n' + '</string>' + '\n'\
+>             '    <key>keyEquivalent</key>' + '\n'\
+>             '    <string>' + tabtrigger + '</string>' + '\n'\
+>             '    <key>name</key>' + '\n'\
+>             '    <string>' + caption + '</string>' + '\n'\
+>             '    <key>scope</key>' + '\n'\
+>             '    <string>' + scope + '</string>' + '\n'\
+>             '    <key>tabTrigger</key>' + '\n'\
+>             '    <string>' + tabtrigger + '</string>' + '\n'\
+>             '    <key>uuid</key>' + '\n'\
+>             '    <string>' + str(uuid.uuid4()) + '</string>' + '\n'\
+>             '</dict>' + '\n'\
+>             '</plist>' + '\n'
+>         output1.write(outp1)
+>         output1.close()
+> 
+>         output2 = open(libpath + 'info.plist', 'w')
+>         outp2 = '<?xml version="1.0" encoding="UTF-8"?>' + '\n'\
+>             '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">' + '\n'\
+>             '<plist version="1.0">' + '\n'\
+>             '<dict>' + '\n'\
+>             '	<key>contactEmail</key>' + '\n'\
+>             '	<string>blaine-mooers@ouhsc.edu</string>' + '\n'\
+>             '	<key>contactName</key>' + '\n'\
+>             '	<string>Blaine Mooers</string>' + '\n'\
+>             '	<key>caption</key>' + '\n'\
+>             '	<string>Customized snippets for working more efficiently in LaTeX.</string>' + '\n'\
+>             '	<key>name</key>' + '\n'\
+>             '	<string>PyMOL</string>' + '\n'\
+>             '	<key>uuid</key>' + '\n'\
+>             '	<string>' + str(uuid.uuid4()) + '</string>' + '\n'\
+>             '</dict>' + '\n'\
+>             '</plist>' + '\n'
+>         output2.write(outp2)
+>         output2.close()
+> 
+>         output3 = open(libpath + 'dependencies.json', 'w')
+>         outp3 = '{' + '\n'\
+>             '    "*": {' + '\n'\
+>             '        "*": [' + '\n'\
+>             '           "pygments"' + '\n'\
+>             '        ]' + '\n'\
+>             '    }' + '\n'\
+>             '}' + '\n'
+>         output3.write(outp3)
+>         output3.close()
+>     return
+> 
+> 
+> def writeUS(scopeUS, args):
+>     """A single file per scope is written out for the UltiSnips of Vim."""
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/ultisnipcctbxsnips/'
+>     selected = args
+>     output1 = open(home + scopeUS + '_bhmm.snippets', 'w')
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          citekey,
+>          pageNumber) in selected:
+>         outp1 = 'snippet ' + tabtrigger + ' "' + caption + '" b \n' \
+>             + body + '\n' \
+>             'endsnippet' + '\n \n'
+>         output1.write(outp1)
+>     output1.close()
+>     return
+> 
+> 
+> def writeNeoSnippets(scopeNeoSnippets, args):
+>     """
+>     NeoSnippets snippets are stored in one file called pymol.snippets.
+>     Each snippet's body is indented by seven spaces using function.
+>     """
+>     selected = args
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/neosnippetscctbxsnips/'
+>     output1 = open(home + 'pymol.snip', 'w')
+>     # outp1 = "# PyMOL snippets \n"
+>     # output1.write(outp1)
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         numSpaces = 4
+>         s = body
+>         sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines())
+>         outp2 = ("snippet " + tabtrigger
+>                             + "\n"
+>                             + "abbr    "
+>                             + tabtrigger
+>                             + "\n"
+>                             + "alias   "
+>                             + tabtrigger
+>                             + "\n"
+>                             + sbody
+>                             + "\n\n")
+>         output1.write(outp2)
+>     output1.close()
+>     return
+> 
+> 
+> def writeGeany(scopeGeany, args):
+>     """A single file for all python snippets for the text editor Geany. 
+>     The snippets are written one per line.
+>     """
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/geanycctbxsnips/'
+>     selected = args
+>     output1 = open(home + 'geanypymolsnippets.conf', 'w')
+>     outpA = '[PyMOL]' + '\n'
+>     output1.write(outpA)
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         if body is not None:
+>             myregex1 = r"\$\{\d+:.+\}"
+>             mysub1 = r"%cursor%"
+>             body1 = re.sub(myregex1, mysub1, body)
+>             myregex2 = r"\$0"
+>             mysub2 = r"%cursor%"
+>             body2 = re.sub(myregex2, mysub2, body1)
+>             myregex3 = r"\n"
+>             mysub3 = r"\\n"
+>             body3 = re.sub(myregex3, mysub3, body2)
+>             myregex4 = r"\$\{0\}"
+>             mysub4 = r"%cursor%"
+>             body4 = re.sub(myregex4, mysub4, body3)
+>             outp1 = tabtrigger + '=' + body4 + '\n'
+>             output1.write(outp1)
+>     outpB = '\n'
+>     output1.write(outpB)
+>     output1.close()
+>     return
+> 
+> 
+> def writeEspresso(scopeEspresso, args):
+>     """A single file for all snippets is written out for Espresso."""
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/espressocctbxsnips/'
+>     selected = args
+>     output1 = open(home + 'espressoymolsnippets.xml', 'w')
+>     outpA = r'<?xml version="1.0" encoding="UTF-8"?>' + '\n'
+>     output1.write(outpA)
+>     outpB = r'<action-recipes>' + '\n \n'
+>     output1.write(outpB)
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         if body is not None:
+>             numSpaces = 12
+>             s = body
+>             sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines())
+>             outpC = '        <snippet id="' + tabtrigger + '" category="' + category + '"> \n'\
+>                 '            <title>' + caption + r'</title>' + '\n'\
+>                     '            <text><![CDATA[' + sbody + r']]></text>' + '\n'\
+>                     '            <syntax-context>' + scope + r'</syntax-context>' + '\n'\
+>                     '            <key-equivalent>' + 'control shift option' + r'</key-equivalent>' + '\n'\
+>                     '        </snippet>' + '\n \n'
+>             output1.write(outpC)
+>     outpD = r'</action-recipes>' + '\n'
+>     output1.write(outpD)
+>     outpE = '\n'
+>     output1.write(outpE)
+>     output1.close()
+>     return
+> 
+> 
+> def writeKate(scopeKate, args):
+>     """
+>     A single file for all snippets is written out for Kate.
+>     Install by double clicking on file with Kate open.
+>     """
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/katecctbxsnips/'
+>     selected = args
+>     output1 = open(home + 'katepythonsnippets.xml', 'w')
+>     outpA = r'<snippets namespace="" license="GPL v3+" filetypes="python" authors="Blane Mooers" name="PyMOL Snippets">' + '\n'\
+>         ' <script></script>' + '\n'
+>     output1.write(outpA)
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         if body is not None:
+>             numSpaces = 1
+>             s = body
+>             sbody = "\n".join((numSpaces * " ") + i for i in s.splitlines())
+>             myregex2 = r"\$0"
+>             mysub2 = r"%cursor%"
+>             body2 = re.sub(myregex2, mysub2, sbody)
+>             outpC = ' <item>' + '\n'\
+>                 '  <displayprefix></displayprefix>' + '\n'\
+>                     '  <match>' + tabtrigger + '</match>' + '\n'\
+>                     '  <displaypostfix></displaypostfix>' + '\n'\
+>                     '  <displayarguments></displayarguments>' + '\n'\
+>                     '  <fillin>' + body2 + '</fillin>' + '\n'\
+>                     ' </item>' + '\n'
+>             output1.write(outpC)
+>     outpD = r'</snippets>' + '\n'
+>     output1.write(outpD)
+>     outpE = '\n'
+>     output1.write(outpE)
+>     output1.close()
+>     return
+> 
+> 
+> def writeVSC(scopeVSC, args):
+>     """A single file per scope is written out for Visual Studio Code."""
+>     selected = args
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/vsccctbxsnips/'
+>     output1 = open(home + scopeVSC + '.json', 'w')
+>     output1.write('{' + '\n')
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         outp1 = '"' + tabtrigger + '": {' + '\n'\
+>             '    "prefix": "' + tabtrigger + '",' + '\n'\
+>             '    "body": ' + body4json + ',' + '\n'\
+>             '    "caption": "' + caption + '",' + '\n'\
+>             '    "scope": "' + scope + '"' + '\n'\
+>             '},' + '\n'
+>         
+>         output1.write(outp1)
+> 
+> 
+> 
+> def writeWings(scopeWing, args):
+>     """ Snippets in Wing follow Python's percentsign(varname)s string substituion syntax. 
+>     The body of the snippet marker has the folowing syntax: %(varname|type|default)s.
+>     Both type and default are optional but the vertical bars must be present 
+>     if omitting type but including default. To write a snippet that includes 
+>     Python style string formats, escape each % by writing %% instead.
+>     
+>     The varname is the variable name. It is used in place of numbers in other snippet systems.
+>     This varname is only internal to the snippet.
+>     If varname is mirrored at multiple sites, the change at one site is propagated to other sites.
+>     ! prepended to the variable name indicates that the value should act as a tab stop even if 
+>     its value is mirrored from an earlier field with the same varname. 
+>     This has no effect if the field name is unique.
+>     
+>     Snippets can contain |!| to indicate the final resting position of the cursor
+>     after all other fields have been filled. 
+>     
+>     The snippets are stored one per file.
+>     The file name has the same file extension as the language.
+>     
+>     Snippets are stored in the directory *snippets* inside the Settings Directory.
+>     Snippets stored at the top level of this directory can be used with any file in the editor. 
+>     These global snippets are shown in the * tab of the Snippets tool.
+>     
+>     Snippets designed for a particular file type are stored in directories named with 
+>     the most common extension for the file type, for example py for Python.  
+>     
+>     Snippets designed for a particular file type are stored in directories named with 
+>     the most common extension for the file type, for example py for Python.
+>     
+>     Each of the file type directories may contain snippets that apply to any context 
+>     in files of that type and sub-directories named <context>.ctx for snippets designed
+>     for a particular context. <context> is replaced with the desired context name.
+>     
+>     On Windows the settings directory is called Wing Pro 7 and is placed within the 
+>     per-user application data directory. For Windows running on c: with an English localization 
+>     the location is: c:\\Users\\username\\AppData\\Roaming\\Wing Pro 7
+>     In Wing Personal the settings directory is instead named Wing Personal 7.2 and 
+>     in Wing 101 it is called`` Wing 101 7.2``.
+>     
+>     On Linux and OS X the settings directory is a sub-directory of your home directory:
+>     ~/.wingpro7
+>     ~/.wing-personal7
+>     ~/.wing-101-7
+>     
+>     ~/.wingpro7/snippets/python
+>     
+>     Wing writes a .config file in the snippets directory. 
+>     Do not delete nor edit this file.
+>     Doing so could lead to the deletion of your files.
+>     
+>     The python files will not have syntax highlighting at present in Wing.
+>     The pymolpysnips will have syntax highlighting of the Python syntax.
+>     
+>     The python snippets should all start at the left column.
+>  
+>     We have to replace in body the tab stop markdown '${1:' with '%('  and '}' with ')s'.
+>     We have to duplicate the default value and have it serve as the variable name.
+>     The two values are to be separated by ||.
+>     The regex code below does this.
+>     
+>     The myregex1 rawstring is the search string.
+>     It has the special characters escaped with backspaces.
+>     The dot after the first brace is for the tab stop index number which we are removing.
+>     The (.*) expression captures the default parameter value.
+>     
+>     The mysub1 is the subsitution. 
+>     The \1 represent the default parameter value which we will repeat after ||.
+>     The value that goes between the pipes is the data type, string or date.
+>     I chose to leave this blank.
+>     
+>     We have to escape '%' with '%%' to avoid the confusion with the start of tab stops.
+>     
+>     """
+>     selected = args
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/wingscctbxsnips/python/'
+>     for (tabtrigger,
+>          language,
+>          scope,
+>          category,
+>          caption,
+>          body,
+>          body4json,
+>          body4bbedit,
+>          pythonYN,
+>          hasPythonVersionYN,
+>          indexTag,
+>          citekey,
+>          pageNumber) in selected:
+>         myregex0 = r'%'
+>         mysub0 = r'%%'
+>         body0= re.sub(myregex0, mysub0, body)
+>         myregex1 = r'\$\{.\:(.*)\}'
+>         mysub1 = r'%(\1||\1)s'
+>         body1= re.sub(myregex1, mysub1, body0)
+>         output1 = open(home + tabtrigger, 'w')
+>         sbody = body1 + '\n\n' + '|!|'
+>         output1.write(sbody)
+>         output1.close()
+>     return
+>          
+>     
+> 
+> def writeBrackets(scopeBrackets, args):
+>     """
+>     A single yml file is written out for the Brackets text editor.
+>     This is a remake (9 March 2019) of the Old Brackets exporter.
+>     It is inspired by the brackets-snippets extension by edc.
+>     https://github.com/chuyik/brackets-snippets
+> 
+>     Store the yml file in ~/Library/Application\ Support/Brackets/extensions/user
+> 
+>     The multi line code block has to be indented by 8 spaces.
+>     The terminal tabe stop seems need to be enclosed by braces.
+>     I think the braces are optional for other text editors.
+>     If not, I can write a regex to replace the ${0} with $0.
+>     """
+>     selected = args
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/bracketscctbxsnips/'
+1794c2871
+<             '  source: github/MooersLab/pymolsnips' + '\n'\
+---
+>             '  source: github/MooersLab/cctbxsnips' + '\n'\
+1796c2873
+<             +sbody + "\n\n" + "${0}" + "\n"\
+---
+>             + sbody + '\n'\
+1817c2894
+<     I may have to write an extension for pml.
+---
+>     I may have to write an extension for python.
+1827c2904
+<     home = '/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/bracketspymolsnips/'
+---
+>     home = '/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/bracketscctbxsnips/'
+1830,1832c2907,2909
+<         +'# PyMOL-pml' + '\n'\
+<         +'# From ' + '\n'\
+<         +'# ---' + '\n'
+---
+>         + '# PyMOL-python' + '\n'\
+>         + '# From ' + '\n'\
+>         + '# ---' + '\n'
+1850c2927
+<         outp2 = '- trigger: ' + tabtrigger + '\n'\
+---
+>         outp2 = '- trigger: '+tabtrigger+'\n'\
+1854c2931
+<                 +sbody + "\n\n" + "${0}" + "\n"
+---
+>                 + sbody + '\n'
+1911c2988
+<     table_name = 'pml'
+---
+>     table_name = 'codeFrags'
+1927c3004
+<     conn = sqlite3.connect('pymolsnips.db')
+---
+>     conn = sqlite3.connect('cctbxsnips.db')
+1953d3029
+<     scopeJupyterLabpy = 'python'
+1955d3030
+<     scopeJupyterLabAnnotatedpy = 'python'
+1959,1960c3034,3037
+<     scopeWing ='python'
+<     # home1 = r'/Users/blaine/Manuscripts/PyMOLsnippets/'
+---
+>     scopeWings = 'python'
+>     # writeJupyterClippingBody(scopeJupyterClippingBody, args):
+> 
+>     # home1 = r'/Users/blaine/manuscripts/PyMOLsnippets/'
+1962,1963c3039
+<     # writeAtom(scopeAtom, args=fetchsnips(table_name, cn))
+<     
+---
+> 
+1970d3045
+<     # writeGedit(scopeGedit, args=fetchsnips(table_name, cn))
+1976a3052
+>     # writeAtom(scopeAtom, args=fetchsnips(table_name, cn))
+1978a3055
+>     # writeGedit(scopeGedit, args=fetchsnips(table_name, cn))
+1980,1983c3057,3059
+<     # 
+<     # write with tabstops
+<     writeJupyterLabpy(scopeJupyterLabpy, args=fetchsnips(table_name, cn))
+<     #writeJupyterLabAnnotatedpy(scopeJupyterLabAnnotatedpy, args=fetchsnips(table_name, cn))
+---
+>     
+>     # writeJupyterClippingBody(scopeJupyterClippingBody, args=fetchsnips(table_name, cn))
+>     writeJupyterClippingBody(scopeJupyterClippingBody, args=fetchsnips(table_name, cn))
+1984a3061
+>     # writeJupyterLab2(scopeJupyterLab, args=fetchsnips(table_name, cn))
+1987a3065
+>     # writeWings(scopeWings,args=fetchsnips(table_name, cn))
+1992,1995c3070,3073
+<     #############writeWing(scopeWing,args=fetchsnips(table_name, cn))
+<     # shutil.rmtree("/Users/blaine/Library/Application Support/TextMate/Bundles/pml.tmbundle")
+<     # copy('/Users/blaine/Manuscripts/PyMOLsnippets/pymolsnips/PyMOL.tmbundle/Snippets','/Users/blaine/Library/Application Support/TextMate/Bundles/PyMOL.tmbundle/Snippets')
+<     # countSelected(table_name, cn, print_out=True)
+---
+>     # shutil.rmtree("/Users/blaine/Library/Application Support/TextMate/Bundles/python.tmbundle")
+>     # copy('/Users/blaine/manuscripts/CCTBXsnips/cctbxsnips/PyMOL.tmbundle/Snippets','/Users/blaine/Library/Application Support/TextMate/Bundles/PyMOL.tmbundle/Snippets')
+> 
+> 
+2006c3084,3086
+<     # subtablesGitHubmd(table_name, cn)
+---
+>     subtablesGitHubmd(table_name, cn)
+>     printCats(cursor=c, table_name=table_name, print_out=True)
+>     countSelected(table_name, cn, print_out=True)

@@ -1,0 +1,19 @@
+{
+  "display_name": "millerArrayDictColumnLabels",
+  "metadata": {
+    "language": "python",
+    "description": "Print column labels of a Miller array dictionary.",
+    "tags": [
+    "python","millerArrayDictColumnLabels","miller array","dictionary column labels
+"
+    ],
+    "code": [
+      "'''",
+      "[print(f"Column label: {key[2]}")  for key in miller_arrays_dict.keys()]",
+      "$0'''",
+      ""
+      "[print(f'Column label: {key[2]')  for key in miller_arrays_dict.keys()]"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

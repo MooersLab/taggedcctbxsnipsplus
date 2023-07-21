@@ -1,0 +1,18 @@
+{
+  "display_name": "millerArrayComprehensiveSummary",
+  "metadata": {
+    "language": "python",
+    "description": "Show comprehensive summary for a specified Miller array. ",
+    "tags": [
+    "python","millerArrayComprehensiveSummary","miller array","show comprehensive summary"
+    ],
+    "code": [
+      "'''",
+      "miller_arrays[${1:0}].show_comprehensive_summary()",
+      "$0'''",
+      ""
+      "miller_arrays[0].show_comprehensive_summary()"
+    ]
+  },
+  "schema_name": "code-snippet"
+}
