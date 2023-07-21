@@ -1,0 +1,18 @@
+{
+  "display_name": "millerArrayCC",
+  "metadata": {
+    "language": "python",
+    "description": "Return CC one-half sigma tau for a given Miller array.",
+    "tags": [
+    "python","millerArrayCC","miller array","cc"
+    ],
+    "code": [
+      "'''",
+      "miller_arrays[${1:0}].cc_one_half_sigma_tau()",
+      "$0'''",
+      ""
+      "miller_arrays[0].cc_one_half_sigma_tau()"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

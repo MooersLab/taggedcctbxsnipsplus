@@ -1,0 +1,18 @@
+{
+  "display_name": "condaRemoveEnv",
+  "metadata": {
+    "language": "python",
+    "description": "Remove a specified env. The bang (!) enables running this command in a Juptyer Notebook. Delete the bang to run the command in the terminal.",
+    "tags": [
+    "python","condaRemoveEnv","conda","install"
+    ],
+    "code": [
+      "'''",
+      "!conda env remove --name cctbx37",
+      "$0'''",
+      ""
+      "!conda env remove --name cctbx37"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

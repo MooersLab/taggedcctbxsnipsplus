@@ -1,0 +1,20 @@
+{
+  "display_name": "fixPermissionsOnMacSDK",
+  "metadata": {
+    "language": "python",
+    "description": "Fix permission on MacOS SDK. Adjust the version number of the sdk as needed.",
+    "tags": [
+    "python","fixPermissionsOnMacSDK","command line tools"
+    ],
+    "code": [
+      "'''",
+      "cd /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/",
+      "sudo ln -s MacOSX.sdk MacOSX10.15.sdk",
+      "$0'''",
+      ""
+      "cd /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/",
+      "sudo ln -s MacOSX.sdk MacOSX10.15.sdk"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

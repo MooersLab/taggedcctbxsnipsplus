@@ -1,0 +1,28 @@
+{
+  "display_name": "averageB",
+  "metadata": {
+    "language": "python",
+    "description": "Print the average B factor for all atoms.",
+    "tags": [
+    "python","averageB","iobtbx","fetch mtz"
+    ],
+    "code": [
+      "'''",
+      "from iotbx import pdb",
+      "pdb_name = '~/${1:Downloads/4RBQ}.pdb'",
+      "pdb_inp = pdb.input(file_name=pdb_name)",
+      "atoms = pdb_inp.atoms()",
+      "bfactors = atoms.extract_b()",
+      "bfactors.format_mean("%6.2f Ang.^2")",
+      "$0'''",
+      ""
+      "from iotbx import pdb",
+      "pdb_name = "~/Downloads/4RBQ.pdb"",
+      "pdb_inp = pdb.input(file_name=pdb_name)",
+      "atoms = pdb_inp.atoms()",
+      "bfactors = atoms.extract_b()",
+      "bfactors.format_mean('%6.2f Ang.^2')"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

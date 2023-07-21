@@ -1,0 +1,18 @@
+{
+  "display_name": "millerArrayMethods",
+  "metadata": {
+    "language": "python",
+    "description": "Print the available methods for the Miller class.",
+    "tags": [
+    "python","millerArrayMethods","miller array","methods"
+    ],
+    "code": [
+      "'''",
+      "dir(miller_arrays[${1:0}])",
+      "$0'''",
+      ""
+      "dir(miller_arrays[0])"
+    ]
+  },
+  "schema_name": "code-snippet"
+}

@@ -1,0 +1,18 @@
+{
+  "display_name": "millerArraydstar",
+  "metadata": {
+    "language": "python",
+    "description": "Return the resolution range in d* in a specified Miller array.",
+    "tags": [
+    "python","millerArraydstar","miller array","dstar"
+    ],
+    "code": [
+      "'''",
+      "miller_arrays[${1:0}].min_max_d_star_sq()",
+      "$0'''",
+      ""
+      "miller_arrays[0].min_max_d_star_sq()"
+    ]
+  },
+  "schema_name": "code-snippet"
+}
